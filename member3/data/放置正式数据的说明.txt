@@ -1,3 +1,4 @@
-40节点数据已接入 city40/，保持曾珊珊原始字节与哈希；其他四种规模仍待交付。
-源文件在 submissions/zeng-shanshan/project/data，加载器和校验器已一并接入。
-先运行 python3 -m src.scenario_check 核验三情景数据；正式两算法实验仍待罗永军交付。
+city40、grid100、grid400、grid900、grid1600均已接入，保留各原始交付字节与哈希。
+queries.csv已按固定种子生成40组查询，queries_provenance.json记录来源。
+运行python3 -m src.scenario_check及python3 -m src.scale_check核验数据。
+正式算法尚未交付，不产生正式计时。

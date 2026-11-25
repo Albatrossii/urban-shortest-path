@@ -8,7 +8,7 @@
 - 40 节点数据通过结构、随机速度序列、哈希、情景加载和独立最短时间核验。
 - 40 节点数据及原始加载器已接入 `member3/data/city40/`，数据端三情景联调通过。
 - 正式 Dijkstra、A* 待罗永军交付；交通情景尚待组内算法复核后冻结。
-- 100、400、900、1600 节点的性能实验数据尚待补齐。
+- 100、400、900、1600 节点规模数据已补齐并接入；40 组固定查询已生成并通过独立参考核验。
 - **尚未完成两种组内正式算法的性能实验；仓库中的示例和工具测试不构成论文实验结论。**
 
 ## 目录
@@ -50,7 +50,7 @@ python3 -m src.experiments --mode demo --quick
 python3 -m src.scenario_check
 ```
 
-该命令生成 `member3/integration/city40-data-check.json`，只使用 NetworkX 进行数据核验，不生成两算法性能记录。收到罗永军的 `src/algorithms.py` 后，先运行 `python3 -m src.experiments --scope scenario --check`，再运行 `python3 -m src.experiments --scope scenario`。当前正式入口仅会报告正式算法缺失并停止。
+该命令生成 `member3/integration/city40-data-check.json`，只使用 NetworkX 进行数据核验，不生成两算法性能记录。收到罗永军的 `src/algorithms.py` 后，先运行 `python3 -m src.experiments --scope scenario --check`，再运行 `python3 -m src.experiments --scope scenario`。四种规模数据可运行 `python3 -m src.scale_check` 核验；记录位于 `member3/integration/scale-data-check.json`。当前全量正式入口仅会报告 `src/algorithms.py` 缺失并停止。
 
 ## 复核曾珊珊的现有数据
 
@@ -66,10 +66,10 @@ python3 -m src.validate_data --nodes data/sample/nodes.csv --roads data/sample/r
 
 ## 待完成的交接
 
-1. 曾珊珊补齐四种规模路网，扩展固定 city40 的生成及校验逻辑。
+1. 四种规模路网已接入，规模校验器已更新。实验端分派调用首次 city40 校验器与新版规模校验器，以兼容原始两版 manifest，不改写数据。
 2. 罗永军用正式算法确认正常基准路线，随后共同冻结情景。
 3. 40 节点数据已复制到实验工具的 `data/city40/`；实验端只读兼容两种 manifest 约定，未改原始数据及哈希。
-4. 原始 `data_loader.py` 与依赖 `validate_data.py` 已一并接入。后者仍固定 city40，扩展规模数据时需泛化。
+4. 原始 `data_loader.py` 与依赖 `validate_data.py` 已一并接入。现通过兼容入口调用原始 city40 与补充规模校验器，五种路网均已核验。
 5. 正式实验完成后，按任务书保存环境、输入和代码哈希、原始计时及汇总表。
 
 ## 结果口径

@@ -1,0 +1,396 @@
+{
+  "status": "scale_data_integration_passed",
+  "team_algorithm_verified": false,
+  "performance_measured": false,
+  "scope": "数据、加载、固定查询和独立最短时间参考核验",
+  "graphs": [
+    {
+      "graph_id": "grid100",
+      "nodes": 100,
+      "physical_roads": 180,
+      "directed_arcs": 360,
+      "seed": 20261224,
+      "queries": 10
+    },
+    {
+      "graph_id": "grid400",
+      "nodes": 400,
+      "physical_roads": 760,
+      "directed_arcs": 1520,
+      "seed": 20261524,
+      "queries": 10
+    },
+    {
+      "graph_id": "grid900",
+      "nodes": 900,
+      "physical_roads": 1740,
+      "directed_arcs": 3480,
+      "seed": 20262024,
+      "queries": 10
+    },
+    {
+      "graph_id": "grid1600",
+      "nodes": 1600,
+      "physical_roads": 3120,
+      "directed_arcs": 6240,
+      "seed": 20262724,
+      "queries": 10
+    }
+  ],
+  "reference_queries": [
+    {
+      "graph_id": "grid100",
+      "query_id": "Q01",
+      "start": "N0050",
+      "goal": "N0095",
+      "reference": "NetworkX",
+      "reference_time_s": 138.0
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q02",
+      "start": "N0097",
+      "goal": "N0021",
+      "reference": "NetworkX",
+      "reference_time_s": 198.0
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q03",
+      "start": "N0039",
+      "goal": "N0021",
+      "reference": "NetworkX",
+      "reference_time_s": 178.8
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q04",
+      "start": "N0050",
+      "goal": "N0089",
+      "reference": "NetworkX",
+      "reference_time_s": 177.60000000000002
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q05",
+      "start": "N0098",
+      "goal": "N0001",
+      "reference": "NetworkX",
+      "reference_time_s": 246.0
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q06",
+      "start": "N0073",
+      "goal": "N0039",
+      "reference": "NetworkX",
+      "reference_time_s": 141.6
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q07",
+      "start": "N0092",
+      "goal": "N0027",
+      "reference": "NetworkX",
+      "reference_time_s": 176.4
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q08",
+      "start": "N0022",
+      "goal": "N0089",
+      "reference": "NetworkX",
+      "reference_time_s": 198.00000000000003
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q09",
+      "start": "N0091",
+      "goal": "N0003",
+      "reference": "NetworkX",
+      "reference_time_s": 181.20000000000002
+    },
+    {
+      "graph_id": "grid100",
+      "query_id": "Q10",
+      "start": "N0080",
+      "goal": "N0014",
+      "reference": "NetworkX",
+      "reference_time_s": 153.60000000000002
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q01",
+      "start": "N0163",
+      "goal": "N0354",
+      "reference": "NetworkX",
+      "reference_time_s": 328.8
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q02",
+      "start": "N0012",
+      "goal": "N0339",
+      "reference": "NetworkX",
+      "reference_time_s": 366.0
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q03",
+      "start": "N0055",
+      "goal": "N0366",
+      "reference": "NetworkX",
+      "reference_time_s": 376.79999999999995
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q04",
+      "start": "N0041",
+      "goal": "N0212",
+      "reference": "NetworkX",
+      "reference_time_s": 300.0
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q05",
+      "start": "N0335",
+      "goal": "N0104",
+      "reference": "NetworkX",
+      "reference_time_s": 345.6
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q06",
+      "start": "N0277",
+      "goal": "N0047",
+      "reference": "NetworkX",
+      "reference_time_s": 312.0
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q07",
+      "start": "N0118",
+      "goal": "N0286",
+      "reference": "NetworkX",
+      "reference_time_s": 320.40000000000003
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q08",
+      "start": "N0349",
+      "goal": "N0060",
+      "reference": "NetworkX",
+      "reference_time_s": 355.20000000000005
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q09",
+      "start": "N0280",
+      "goal": "N0137",
+      "reference": "NetworkX",
+      "reference_time_s": 363.6
+    },
+    {
+      "graph_id": "grid400",
+      "query_id": "Q10",
+      "start": "N0101",
+      "goal": "N0368",
+      "reference": "NetworkX",
+      "reference_time_s": 304.8
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q01",
+      "start": "N0143",
+      "goal": "N0604",
+      "reference": "NetworkX",
+      "reference_time_s": 538.7999999999998
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q02",
+      "start": "N0185",
+      "goal": "N0806",
+      "reference": "NetworkX",
+      "reference_time_s": 580.7999999999998
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q03",
+      "start": "N0825",
+      "goal": "N0082",
+      "reference": "NetworkX",
+      "reference_time_s": 517.1999999999998
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q04",
+      "start": "N0733",
+      "goal": "N0055",
+      "reference": "NetworkX",
+      "reference_time_s": 544.7999999999998
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q05",
+      "start": "N0631",
+      "goal": "N0200",
+      "reference": "NetworkX",
+      "reference_time_s": 509.9999999999999
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q06",
+      "start": "N0040",
+      "goal": "N0882",
+      "reference": "NetworkX",
+      "reference_time_s": 515.9999999999999
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q07",
+      "start": "N0510",
+      "goal": "N0807",
+      "reference": "NetworkX",
+      "reference_time_s": 527.9999999999999
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q08",
+      "start": "N0274",
+      "goal": "N0088",
+      "reference": "NetworkX",
+      "reference_time_s": 457.1999999999999
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q09",
+      "start": "N0858",
+      "goal": "N0093",
+      "reference": "NetworkX",
+      "reference_time_s": 597.5999999999998
+    },
+    {
+      "graph_id": "grid900",
+      "query_id": "Q10",
+      "start": "N0596",
+      "goal": "N0360",
+      "reference": "NetworkX",
+      "reference_time_s": 523.1999999999999
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q01",
+      "start": "N0190",
+      "goal": "N1128",
+      "reference": "NetworkX",
+      "reference_time_s": 651.5999999999998
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q02",
+      "start": "N1305",
+      "goal": "N0482",
+      "reference": "NetworkX",
+      "reference_time_s": 643.1999999999998
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q03",
+      "start": "N0518",
+      "goal": "N0761",
+      "reference": "NetworkX",
+      "reference_time_s": 709.1999999999998
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q04",
+      "start": "N1534",
+      "goal": "N0877",
+      "reference": "NetworkX",
+      "reference_time_s": 608.3999999999999
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q05",
+      "start": "N1408",
+      "goal": "N0392",
+      "reference": "NetworkX",
+      "reference_time_s": 717.5999999999998
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q06",
+      "start": "N1210",
+      "goal": "N0119",
+      "reference": "NetworkX",
+      "reference_time_s": 850.7999999999997
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q07",
+      "start": "N1317",
+      "goal": "N0207",
+      "reference": "NetworkX",
+      "reference_time_s": 839.9999999999997
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q08",
+      "start": "N1082",
+      "goal": "N0310",
+      "reference": "NetworkX",
+      "reference_time_s": 692.3999999999997
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q09",
+      "start": "N0071",
+      "goal": "N1411",
+      "reference": "NetworkX",
+      "reference_time_s": 785.9999999999998
+    },
+    {
+      "graph_id": "grid1600",
+      "query_id": "Q10",
+      "start": "N1309",
+      "goal": "N0253",
+      "reference": "NetworkX",
+      "reference_time_s": 598.7999999999997
+    }
+  ],
+  "data_sha256": {
+    "city40/manifest.json": "3d9179473fa111c5a8607ea5b9f3ba126d5794bbbceaff04e89feda65411933f",
+    "city40/nodes.csv": "3d77e2a6862a864d0f45b2e3ed95d16ed38de7bcfdcec8c54557babd056f1f2a",
+    "city40/roads.csv": "ec9d779e1d4a19e04e5c04ba192f733758410645d5c46c8ce50c3fff3ed5760a",
+    "city40/sample/nodes.csv": "1035713d9bc1b27bf5de37a032b4022c4776457d5bb1f10e384414239396715d",
+    "city40/sample/roads.csv": "11d736665b35ff53619e2b59a6f956ee1d74673d8507c4cc91e24faa8bd48f88",
+    "city40/sample/scenarios.json": "b5186a5d95a0a58f97048d22aa9ebb2e0ca29b7012324023773b9ab15b84b1ae",
+    "city40/scenario_basis.json": "3422ea4b3087d78b14a1329d8a2f8e850c65dc00aca2b6d0164a86eaf43eccb7",
+    "city40/scenarios.json": "05a31daec0d225c1739ebe08a1507a0da8be5fdd044a826c4416f7f17db08a9c",
+    "grid100/manifest.json": "bfcb542cb08a0cc14ac282923c2850431fced8458b90f7b778c89603777aaef1",
+    "grid100/nodes.csv": "b1e0a1dfeec4a33a47eb2b6a703e0d1ce743495456482307ec96846b4d6503c5",
+    "grid100/roads.csv": "524edc470fe02ce7e496b28749bdbf4c48700ce37c622fe81c8380a2555b362e",
+    "grid100/scenarios.json": "496d0c79b5fb24fc1f13986cd5325b97f77d09c91ad13850a7ad320aa1d3a215",
+    "grid1600/manifest.json": "2c7b0e46e787923612cb3b6e724f53b16f3cb2748374d94d85068399d567fdcf",
+    "grid1600/nodes.csv": "6c22ee174418327d0265c98be05e16c721bc7bb93db15eb66812c377f88ec1a9",
+    "grid1600/roads.csv": "553c48a9cf5ae66ac3c9459dd907de999e8527fd50dd1fb9e3bc23a8f9b8d20a",
+    "grid1600/scenarios.json": "496d0c79b5fb24fc1f13986cd5325b97f77d09c91ad13850a7ad320aa1d3a215",
+    "grid400/manifest.json": "80b579dea38a2bc91b0d4d68ceb3e964d5357c5b7c9369100ca9108c9cb45590",
+    "grid400/nodes.csv": "e792ab7b3aa7fc48c354ffbfb1dd7f2242f7f974186a4037cfb20203bb0101e4",
+    "grid400/roads.csv": "b7a6026c39846afabfd676ef87d89d77b3aba31f386e8cdb31c25127a1b194e6",
+    "grid400/scenarios.json": "496d0c79b5fb24fc1f13986cd5325b97f77d09c91ad13850a7ad320aa1d3a215",
+    "grid900/manifest.json": "5cffb8c80d52ba80aa0ab96fe9b576caf9fd666e465c292c0057c566c61a614d",
+    "grid900/nodes.csv": "af4e33ebcccc94832d26e66234a34a706ce125a6c8d9b87e218aea6ebf0ffc53",
+    "grid900/roads.csv": "401fe5c19f6de01823231c38a6fd4aadbba253702fc929989c4c0c9b0dea4a94",
+    "grid900/scenarios.json": "496d0c79b5fb24fc1f13986cd5325b97f77d09c91ad13850a7ad320aa1d3a215",
+    "queries.csv": "e7057e12419599d0924b916654e49e0e255bd9f9f03ff8886d7c1f5e6e7048c0",
+    "queries_provenance.json": "f1bb50e0ff4b62c0a7447beef26559387a006d8b5c5cbfe4aa63036707e8d594",
+    "放置正式数据的说明.txt": "dd9a7929157e1cea04c234a2079c311182ac1527d31b26e2ba08e8a963f295da"
+  },
+  "pending": [
+    "罗永军正式Dijkstra与A*",
+    "正式算法核验及情景冻结",
+    "86组合正式计时"
+  ]
+}

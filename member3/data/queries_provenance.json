@@ -1,0 +1,15 @@
+{
+  "rule": "任务书 V1.0：独立随机源、长距离、不重复有序对",
+  "seeds": {
+    "grid100": 20261225,
+    "grid400": 20261525,
+    "grid900": 20262025,
+    "grid1600": 20262725
+  },
+  "node_files_sha256": {
+    "grid100": "b1e0a1dfeec4a33a47eb2b6a703e0d1ce743495456482307ec96846b4d6503c5",
+    "grid400": "e792ab7b3aa7fc48c354ffbfb1dd7f2242f7f974186a4037cfb20203bb0101e4",
+    "grid900": "af4e33ebcccc94832d26e66234a34a706ce125a6c8d9b87e218aea6ebf0ffc53",
+    "grid1600": "6c22ee174418327d0265c98be05e16c721bc7bb93db15eb66812c377f88ec1a9"
+  }
+}

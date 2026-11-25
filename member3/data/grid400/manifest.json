@@ -1,0 +1,37 @@
+{
+  "graph_id": "grid400",
+  "data_version": "grid400-v1.0",
+  "seed": 20261524,
+  "grid_shape": {
+    "rows": 20,
+    "cols": 20
+  },
+  "node_count": 400,
+  "road_count": 760,
+  "units": {
+    "coordinates": "m",
+    "length": "m",
+    "speed": "km/h",
+    "time": "s"
+  },
+  "generation": {
+    "spacing_m": 200,
+    "topology": "orthogonal grid; bidirectional physical roads; no diagonals",
+    "road_order": "nodes sorted by ID; right neighbor before upward neighbor",
+    "node_id_width": 4,
+    "road_id_width": 4,
+    "speed_choices_kmh": [
+      20,
+      30,
+      40,
+      50,
+      60
+    ],
+    "speed_sampling": "uniform with random.Random(seed)"
+  },
+  "sha256": {
+    "nodes.csv": "e792ab7b3aa7fc48c354ffbfb1dd7f2242f7f974186a4037cfb20203bb0101e4",
+    "roads.csv": "b7a6026c39846afabfd676ef87d89d77b3aba31f386e8cdb31c25127a1b194e6",
+    "scenarios.json": "496d0c79b5fb24fc1f13986cd5325b97f77d09c91ad13850a7ad320aa1d3a215"
+  }
+}

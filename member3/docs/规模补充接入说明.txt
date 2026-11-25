@@ -1,0 +1,23 @@
+规模路网补充接入说明
+2026年11月25日
+
+接收：曾珊珊的规模路网完整包。
+校验通过：grid100=100节点180物理道路360有向边；grid400=400/760/1520；grid900=900/1740/3480；grid1600=1600/3120/6240。
+每规模normal情景、200m间距、规定速度集合、固定种子、道路顺序、坐标、编号和文件哈希均通过。已生成每规模10组固定长距离查询，总计40组，并用NetworkX核对可达性及参考最短通行时间。未执行正式Dijkstra/A*或计时。
+
+兼容说明：新校验器支持规模路网，但city40校验增加generation.node_id_width、road_id_width等要求，首次city40清单没有这些字段。实验端validate_data.py只做分派：city40和sample使用原city40_validate_data.py，grid系列使用补充的scale_validate_data.py。两版原始校验逻辑各自保留；原始交付仍存submissions目录，不重写manifest或哈希。
+
+运行（从member3目录）：
+python3 -m src.scenario_check
+python3 -m src.scale_check
+python3 -m unittest discover -s tests -v
+当前11项测试通过。
+
+queries.csv已经存在，不需要再次运行prepare --queries。该命令会拒绝覆盖已有固定查询。
+收到罗永军src/algorithms.py后：
+python3 -m src.experiments --scope scenario --check
+python3 -m src.experiments --scope scenario
+python3 -m src.experiments --check
+python3 -m src.experiments
+
+现阶段只剩正式算法交付、正确性核验、基准路线确认及情景冻结、正式计时和论文分析。数据完备不等同于全部实验完成。旧操作指南和初始交接清单的“规模数据待交付”为历史状态，以本说明及README最新状态为准。

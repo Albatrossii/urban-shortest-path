@@ -2,7 +2,9 @@
 
 当前已完成：实验参数、接口约定、空白结果表、独立正确性检查、计时程序、汇总程序、示例联调、交接文案与论文实验章节框架。
 2026年11月25日更新：40节点路网、三情景、原始加载器和校验器已接入。
-当前等待：罗永军的正式两算法及基准路线复核；四种规模性能数据。
+最新状态：四种规模数据已补齐、40组固定查询已生成。
+当前仅等待罗永军的正式两算法及基准路线复核。
+运行 python3 -m src.scale_check 可检查四规模数据端联调。
 可先运行 python3 -m src.scenario_check 检查数据端联调。
 尚未运行正式实验，尚无论文可引用的正式实验数字。
 
@@ -15,7 +17,7 @@
 
 三、收到队友文件后：
    1. 按 docs/队友交接说明.txt 的目录放置数据和代码。
-   2. python3 -m src.prepare --queries
+   2. 已生成查询时跳过；需从头生成时才执行 python3 -m src.prepare --queries
    3. python3 -m src.experiments --check
    4. python3 -m src.experiments --scope scenario
    5. python3 -m src.experiments
