@@ -52,11 +52,22 @@ def audit_dataset(folder, graph_id):
     require(manifest.get('data_version'), 'manifest 缺少 data_version')
     require(manifest.get('node_count') == expected_n and manifest.get('road_count') == len(roads), 'manifest 规模错误')
     require(manifest.get('seed') == 20261124 + (0 if graph_id == 'city40' else expected_n), 'manifest 种子错误')
-    require(manifest.get('grid_shape') == [rows, cols], 'manifest grid_shape 应为 [行数,列数]')
-    require(manifest.get('units') == {'distance': 'm', 'speed': 'km/h', 'time': 's'}, 'manifest 单位错误')
-    require(isinstance(manifest.get('files_sha256'), dict), 'manifest 缺少 files_sha256 映射')
-    for name in ('nodes.csv', 'roads.csv', 'scenarios.json'):
-        require(manifest['files_sha256'].get(name) == sha256(folder / name), f'{name} 哈希不一致')
+    # 只在读取时兼容两份清单约定；不重写交付文件或其哈希。
+    for shape in [manifest[k] for k in ('grid_shape',) if k in manifest]:
+        require(shape in ([rows, cols], {'rows': rows, 'cols': cols}), 'manifest 网格规格错误')
+    require('grid_shape' in manifest, 'manifest 缺少 grid_shape')
+    require(manifest.get('units') in (
+        {'distance': 'm', 'speed': 'km/h', 'time': 's'},
+        {'coordinates': 'm', 'length': 'm', 'speed': 'km/h', 'time': 's'}), 'manifest 单位错误')
+    hash_maps = [manifest[k] for k in ('files_sha256', 'sha256') if k in manifest]
+    require(hash_maps and all(isinstance(h, dict) for h in hash_maps), 'manifest 缺少有效哈希映射')
+    for hashes in hash_maps:
+        require(all(n in hashes for n in ('nodes.csv', 'roads.csv', 'scenarios.json')), 'manifest 必需文件哈希缺失')
+        for name, expected in hashes.items():
+            require(isinstance(name, str) and name not in ('', '.', '..') and '/' not in name and '\\' not in name,
+                    'manifest 哈希文件名不安全')
+            file = folder / name
+            require(file.is_file() and expected == sha256(file), f'{name} 哈希不一致')
     return coords, roads, scenarios, manifest
 
 

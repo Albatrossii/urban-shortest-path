@@ -1,0 +1,130 @@
+{
+  "status": "data_integration_passed",
+  "data_version": "city40-v1.0",
+  "team_algorithm_verified": false,
+  "scenario_frozen": false,
+  "performance_measured": false,
+  "purpose": "数据加载与情景参考核验，不是正式两算法实验",
+  "source_sha256": {
+    "manifest.json": "3d9179473fa111c5a8607ea5b9f3ba126d5794bbbceaff04e89feda65411933f",
+    "nodes.csv": "3d77e2a6862a864d0f45b2e3ed95d16ed38de7bcfdcec8c54557babd056f1f2a",
+    "roads.csv": "ec9d779e1d4a19e04e5c04ba192f733758410645d5c46c8ce50c3fff3ed5760a",
+    "scenario_basis.json": "3422ea4b3087d78b14a1329d8a2f8e850c65dc00aca2b6d0164a86eaf43eccb7",
+    "scenarios.json": "05a31daec0d225c1739ebe08a1507a0da8be5fdd044a826c4416f7f17db08a9c"
+  },
+  "scenarios": [
+    {
+      "graph_id": "city40",
+      "scenario_id": "normal",
+      "reference": "NetworkX",
+      "path": [
+        "N00",
+        "N01",
+        "N09",
+        "N17",
+        "N18",
+        "N26",
+        "N27",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N39"
+      ],
+      "road_ids": [
+        "R000",
+        "R003",
+        "R018",
+        "R032",
+        "R035",
+        "R049",
+        "R051",
+        "R053",
+        "R055",
+        "R057",
+        "R059"
+      ],
+      "total_time_s": 193.2,
+      "total_distance_m": 2200.0,
+      "node_count": 40,
+      "arc_count": 134
+    },
+    {
+      "graph_id": "city40",
+      "scenario_id": "congested",
+      "reference": "NetworkX",
+      "path": [
+        "N00",
+        "N01",
+        "N02",
+        "N03",
+        "N04",
+        "N12",
+        "N20",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N39"
+      ],
+      "road_ids": [
+        "R000",
+        "R002",
+        "R004",
+        "R006",
+        "R009",
+        "R024",
+        "R039",
+        "R053",
+        "R055",
+        "R057",
+        "R059"
+      ],
+      "total_time_s": 205.2,
+      "total_distance_m": 2200.0,
+      "node_count": 40,
+      "arc_count": 134
+    },
+    {
+      "graph_id": "city40",
+      "scenario_id": "closed",
+      "reference": "NetworkX",
+      "path": [
+        "N00",
+        "N01",
+        "N09",
+        "N17",
+        "N18",
+        "N19",
+        "N20",
+        "N28",
+        "N29",
+        "N30",
+        "N31",
+        "N39"
+      ],
+      "road_ids": [
+        "R000",
+        "R003",
+        "R018",
+        "R032",
+        "R034",
+        "R036",
+        "R039",
+        "R053",
+        "R055",
+        "R057",
+        "R059"
+      ],
+      "total_time_s": 202.8,
+      "total_distance_m": 2200.0,
+      "node_count": 40,
+      "arc_count": 132
+    }
+  ],
+  "pending": [
+    "罗永军交付并验证Dijkstra和A*",
+    "组内算法复核基准路线后冻结情景",
+    "四种规模路网与全量性能实验"
+  ]
+}

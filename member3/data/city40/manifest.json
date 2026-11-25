@@ -1,0 +1,59 @@
+{
+  "data_version": "city40-v1.0",
+  "seed": 20261124,
+  "grid_shape": {
+    "rows": 5,
+    "cols": 8
+  },
+  "node_count": 40,
+  "road_count": 67,
+  "units": {
+    "coordinates": "m",
+    "length": "m",
+    "speed": "km/h",
+    "time": "s"
+  },
+  "generation": {
+    "spacing_m": 200,
+    "topology": "orthogonal grid; bidirectional physical roads; no diagonals",
+    "road_order": "nodes sorted by ID; right neighbor before upward neighbor",
+    "speed_choices_kmh": [
+      20,
+      30,
+      40,
+      50,
+      60
+    ],
+    "speed_sampling": "uniform with random.Random(seed)"
+  },
+  "sha256": {
+    "nodes.csv": "3d77e2a6862a864d0f45b2e3ed95d16ed38de7bcfdcec8c54557babd056f1f2a",
+    "roads.csv": "ec9d779e1d4a19e04e5c04ba192f733758410645d5c46c8ce50c3fff3ed5760a",
+    "scenarios.json": "05a31daec0d225c1739ebe08a1507a0da8be5fdd044a826c4416f7f17db08a9c",
+    "scenario_basis.json": "3422ea4b3087d78b14a1329d8a2f8e850c65dc00aca2b6d0164a86eaf43eccb7"
+  },
+  "scenario_generation": {
+    "baseline_source": "reference Dijkstra; Bellman-Ford and NetworkX distance checks passed; Luo Yongjun cross-validation pending",
+    "baseline_query": "N00->N39",
+    "baseline_road_ids": [
+      "R000",
+      "R003",
+      "R018",
+      "R032",
+      "R035",
+      "R049",
+      "R051",
+      "R053",
+      "R055",
+      "R057",
+      "R059"
+    ],
+    "congested_road_ids": [
+      "R032",
+      "R035",
+      "R049",
+      "R051"
+    ],
+    "closed_road_id": "R049"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "normal": {
+    "speed_factors": {},
+    "closed_roads": []
+  },
+  "congested": {
+    "speed_factors": {
+      "R032": 0.3,
+      "R035": 0.3,
+      "R049": 0.3,
+      "R051": 0.3
+    },
+    "closed_roads": []
+  },
+  "closed": {
+    "speed_factors": {},
+    "closed_roads": [
+      "R049"
+    ]
+  }
+}

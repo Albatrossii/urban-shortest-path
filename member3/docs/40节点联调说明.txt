@@ -1,0 +1,18 @@
+40节点三情景联调说明
+2026年11月25日
+
+已接入：data/city40/完整原始数据及sample；src/data_loader.py与src/validate_data.py均从曾珊珊原交付复制，未修改。实验端只读兼容manifest的字典/列表网格、两种单位字段、sha256/files_sha256哈希键；所有列出的文件哈希都须通过，包含scenario_basis.json。
+
+从member3目录运行：
+python3 -m src.scenario_check
+输出：integration/city40-data-check.json。
+此命令独立于罗永军的算法，核验三情景加载、双向边、降速封路、重复加载、基准参考路线和文件哈希。NetworkX最短时间分别为193.2s、205.2s、202.8s。
+
+状态：数据端联调通过，正式组内算法未验收、情景未冻结、未做性能计时。
+收到罗永军的src/algorithms.py后，依次运行：
+python3 -m src.experiments --scope scenario --check
+python3 -m src.experiments --scope scenario
+前者只核验；后者执行六个查询算法组合的30轮计时。若返回类型不同，在team_api.py转换。
+
+现有操作指南PDF和工具核验记录反映最初准备状态；以本更新说明和实际运行结果为准。
+加载器的manifest校验仍固定city40，因此四种规模路网交付时需要由数据负责人扩展校验器，不可直接套用。

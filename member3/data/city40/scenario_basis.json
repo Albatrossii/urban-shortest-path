@@ -1,0 +1,80 @@
+{
+  "graph_id": "city40",
+  "scenario_id": "normal",
+  "start": "N00",
+  "goal": "N39",
+  "source_sha256": {
+    "nodes.csv": "3d77e2a6862a864d0f45b2e3ed95d16ed38de7bcfdcec8c54557babd056f1f2a",
+    "roads.csv": "ec9d779e1d4a19e04e5c04ba192f733758410645d5c46c8ce50c3fff3ed5760a"
+  },
+  "baseline": {
+    "path": [
+      "N00",
+      "N01",
+      "N09",
+      "N17",
+      "N18",
+      "N26",
+      "N27",
+      "N28",
+      "N29",
+      "N30",
+      "N31",
+      "N39"
+    ],
+    "road_ids": [
+      "R000",
+      "R003",
+      "R018",
+      "R032",
+      "R035",
+      "R049",
+      "R051",
+      "R053",
+      "R055",
+      "R057",
+      "R059"
+    ],
+    "total_time_s": 193.20000000000002,
+    "total_distance_m": 2200.0,
+    "expanded_nodes": 40
+  },
+  "independent_distance_check": {
+    "method": "Bellman-Ford over the same physical roads",
+    "total_time_s": 193.20000000000002,
+    "matches_dijkstra": true
+  },
+  "networkx_check": {
+    "status": "passed",
+    "networkx_version": "3.7",
+    "total_time_s": 193.20000000000002,
+    "matches_dijkstra": true,
+    "one_shortest_path": [
+      "N00",
+      "N01",
+      "N09",
+      "N17",
+      "N18",
+      "N26",
+      "N27",
+      "N28",
+      "N29",
+      "N30",
+      "N31",
+      "N39"
+    ],
+    "path_may_differ_when_multiple_equal_cost_routes_exist": true
+  },
+  "scenario_selection": {
+    "congested_road_ids": [
+      "R032",
+      "R035",
+      "R049",
+      "R051"
+    ],
+    "speed_factor": 0.3,
+    "closed_road_id": "R049",
+    "closed_graph_reachable": true
+  },
+  "cross_validation_status": "NetworkX distance check passed; pending comparison with Luo Yongjun's tested algorithm. This local reference route remains a draft basis until team sign-off."
+}

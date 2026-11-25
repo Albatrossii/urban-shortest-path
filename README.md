@@ -6,6 +6,7 @@
 
 - 已完成任务书和分工、成员三实验准备工具，以及曾珊珊提交的 40 节点路网模型与数据初稿。
 - 40 节点数据通过结构、随机速度序列、哈希、情景加载和独立最短时间核验。
+- 40 节点数据及原始加载器已接入 `member3/data/city40/`，数据端三情景联调通过。
 - 正式 Dijkstra、A* 待罗永军交付；交通情景尚待组内算法复核后冻结。
 - 100、400、900、1600 节点的性能实验数据尚待补齐。
 - **尚未完成两种组内正式算法的性能实验；仓库中的示例和工具测试不构成论文实验结论。**
@@ -43,7 +44,13 @@ python3 -m src.experiments --mode demo --quick
 
 这一步使用 `examples/demo_backend.py` 验证工作流程。输出标记为 `DEMO_ONLY`，不得用于论文性能比较。
 
-收到正式材料后，按 `member3/docs/队友交接说明.txt` 接入，再依次生成查询、核验、试跑与全量运行。当前正式入口会报告缺少的材料并停止。
+收到正式材料后，按 `member3/docs/队友交接说明.txt` 接入，再依次生成查询、核验、试跑与全量运行。40 节点数据端可单独核验：
+
+```sh
+python3 -m src.scenario_check
+```
+
+该命令生成 `member3/integration/city40-data-check.json`，只使用 NetworkX 进行数据核验，不生成两算法性能记录。收到罗永军的 `src/algorithms.py` 后，先运行 `python3 -m src.experiments --scope scenario --check`，再运行 `python3 -m src.experiments --scope scenario`。当前正式入口仅会报告正式算法缺失并停止。
 
 ## 复核曾珊珊的现有数据
 
@@ -61,8 +68,8 @@ python3 -m src.validate_data --nodes data/sample/nodes.csv --roads data/sample/r
 
 1. 曾珊珊补齐四种规模路网，扩展固定 city40 的生成及校验逻辑。
 2. 罗永军用正式算法确认正常基准路线，随后共同冻结情景。
-3. 将数据与实验工具接通：原始数据目录为平铺 `data/`，实验工具预期 `data/city40/`；manifest 的网格、单位及哈希字段需兼容。二者原始含义一致，不应为改字段破坏已有文件哈希。
-4. 接入加载器时同时提供其依赖 `src/validate_data.py`。
+3. 40 节点数据已复制到实验工具的 `data/city40/`；实验端只读兼容两种 manifest 约定，未改原始数据及哈希。
+4. 原始 `data_loader.py` 与依赖 `validate_data.py` 已一并接入。后者仍固定 city40，扩展规模数据时需泛化。
 5. 正式实验完成后，按任务书保存环境、输入和代码哈希、原始计时及汇总表。
 
 ## 结果口径
