@@ -1,0 +1,78 @@
+成员三（马心悦）交接说明
+
+一、发给曾珊珊：数据与加载器
+
+我已准备好实验程序。请按任务书 V1.0 提供小样例及正式数据，具体如下：
+1. 展示路网 city40：8列×5行、40节点、67条物理道路、三种情景，N00到N39。
+2. 规模路网 grid100/grid400/grid900/grid1600：分别为10/20/30/40边长方形网格，仅正常情景。
+3. 每个路网交 nodes.csv、roads.csv、scenarios.json、manifest.json。
+4. 提供 src/data_loader.py，load_graph(nodes_path, roads_path, scenarios_path, scenario_id) 返回任务书中的 Graph；每次从原始文件构建，避免累计降速。
+5. 请告知小样例与正式版预计交付时间，正式实验前我们一起冻结版本。
+
+统一目录：
+data/city40/{nodes.csv,roads.csv,scenarios.json,manifest.json}
+data/grid100/{同上四文件}
+data/grid400/{同上四文件}
+data/grid900/{同上四文件}
+data/grid1600/{同上四文件}
+
+CSV 表头：
+nodes.csv：node_id,x_m,y_m
+roads.csv：road_id,u,v,length_m,speed_kmh
+UTF-8 编码；距离米、速度 km/h、时间秒；编号必须字符串。
+
+manifest.json 的最小约定（以下为结构示例，不是已验收的正式文件）：
+{
+  "data_version": "city40-v1.0",
+  "seed": 20261124,
+  "grid_shape": [5, 8],
+  "node_count": 40,
+  "road_count": 67,
+  "units": {"distance":"m","speed":"km/h","time":"s"},
+  "files_sha256": {
+    "nodes.csv": "填写最终文件真实SHA-256",
+    "roads.csv": "填写最终文件真实SHA-256",
+    "scenarios.json": "填写最终文件真实SHA-256"
+  }
+}
+规模路网 seed=20261124+节点数；grid_shape=[边长,边长]；data_version 使用相应路网版本号。
+任务书要求记录哈希但未固定键名，这里仅将交接格式具体化；若已有别的格式，一起改 src/data_checks.py 对接，不凭空伪造哈希。
+双方可用 Python hashlib.sha256(Path(文件).read_bytes()).hexdigest() 计算。
+不要求 manifest 自己包含自己的哈希；成员三运行时会记录整个输入目录各文件哈希。
+
+二、发给罗永军：算法接口与核验
+
+我已按任务书准备计时和正确性核验。请提供 src/algorithms.py，包含：
+dijkstra(graph, start, goal) -> SearchResult
+astar(graph, start, goal) -> SearchResult
+返回 found、path、road_ids、total_time_s、total_distance_m、expanded_nodes。
+使用属性对象；如使用字典，我们只在 src/team_api.py 做转换，保持实验主体不变。
+Graph、Arc、SearchResult 的可共用定义在 src/contracts.py。边界核验使用这种结构；如果你的算法强制要求另一种类型，请一起调整 team_api.make_graph 和调用转换。
+
+请重点确认：
+1. 时间权重：3.6×米÷km/h，单位秒；只按时间最短搜索。
+2. expanded_nodes 只计有效出队，含目标，旧堆条目和重复关闭节点不计。
+3. 起终点相同返回 [start]、空道路、0时间、0距离、扩展数1。
+4. 不可达返回 False、空路径、空道路、None成本；节点不存在抛 ValueError。
+5. A* 使用直线距离÷原始全网速度上界，并换算秒；邻接表排序、堆平局规则按任务书。
+6. 不修改输入 Graph；函数内不计时、不打印、不读写文件、不绘图。
+7. 提供最小调用示例，并说明已核对哪些用例。
+
+正确性核验包括手算图、等成本路线、封路、不可达、不存在节点，以及全部正式查询的 NetworkX 对照。
+工具只能检查返回值和图是否改变；expanded_nodes 内部如何累加、是否提前停止以及是否按规定破平局，仍需你提供实现说明并一起查看代码。
+
+三、发给蒋宇杰：结果表与绘图
+
+正式实验结束后，我会发你同一次 results/run_时间/ 文件夹。
+先看 environment.json：status=completed、mode=official；scope=all 表示全量完成，scope=scenario 只完成情景试跑。
+query_results.csv 是路线与成本；timing_summary.csv 是每查询30轮的耗时统计；scale_summary.csv 是每规模10查询中位数；speedup_summary.csv 是配对加速比中位数；scenario_summary.csv 是交通情景对比。
+联表键为 graph_id,scenario_id,query_id,algorithm，不能仅按算法名拼接。
+图1基础路网；图2三情景路径；图3规模与耗时；图4规模与访问节点数。
+P25/P75 是同一查询的计时分布，不是10查询之间的置信区间，不要直接当作规模图的置信带。
+demo_results 中的 DEMO_ONLY 数据只能验证读表画图流程，不能进入最终论文。
+
+四、发给吴林岭：实验交付与版本冻结
+
+我负责实验程序、核验日志、计时原始记录、汇总和实验分析。正式运行前需要全组固定数据、算法与任务书版本。
+正式完成后交付整个运行文件夹、当次代码与参数版本、实验章节初稿。算法或数据改动后重跑受影响实验，不直接改表格数字。
+当前准备状态：工具和演练可验证，正式数据与正式算法待交接；暂无正式结果或性能结论。

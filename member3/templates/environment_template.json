@@ -1,0 +1,22 @@
+{
+  "status": "not_run",
+  "mode": "official",
+  "cpu": null,
+  "ram_bytes": null,
+  "python": null,
+  "dependencies": {},
+  "parameters": {
+    "warmups": 3,
+    "pilot_calls": 100,
+    "rounds": 30,
+    "target_batch_s": 0.02,
+    "max_batch": 10000,
+    "data_seed": 20261124,
+    "query_seed": 20261125,
+    "rel_tol": 1e-09,
+    "abs_tol": 1e-06
+  },
+  "data_sha256": {},
+  "source_sha256": {},
+  "started_at_utc": null
+}

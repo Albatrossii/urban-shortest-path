@@ -1,0 +1,6 @@
+这里等待曾珊珊交付正式数据；当前没有正式CSV。
+每个路网使用单独目录 city40、grid100、grid400、grid900、grid1600。
+每目录四文件：nodes.csv、roads.csv、scenarios.json、manifest.json。
+详细字段和manifest结构见 docs/队友交接说明.txt。
+收到四种规模的nodes.csv后，从项目根运行 python3 -m src.prepare --queries，自动生成这里的queries.csv。
+程序不会自动生成正式路网或假填结果。

@@ -1,0 +1,4 @@
+road_id,u,v,length_m,speed_kmh
+R001,A,B,100,36
+R002,B,C,100,36
+R003,A,C,250,36

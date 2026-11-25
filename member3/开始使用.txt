@@ -1,0 +1,38 @@
+成员三（马心悦）实验准备包
+
+当前已完成：实验参数、接口约定、空白结果表、独立正确性检查、计时程序、汇总程序、示例联调、交接文案与论文实验章节框架。
+当前等待：曾珊珊的正式路网与情景数据，罗永军的正式加载器与两种算法。
+尚未运行正式实验，尚无论文可引用的正式实验数字。
+
+一、先阅读 docs/成员三操作指南.pdf 和 docs/队友交接说明.txt。
+二、在本文件所在文件夹打开终端，使用 Python 3.10 或以上版本：
+   python3 -m pip install -r requirements.txt
+   python3 -m src.experiments --mode demo --quick
+   Windows 可将 python3 换为 python。
+   示例运行结果写入 demo_results，文件上标明 DEMO_ONLY，不得作为论文结果。
+
+三、收到队友文件后：
+   1. 按 docs/队友交接说明.txt 的目录放置数据和代码。
+   2. python3 -m src.prepare --queries
+   3. python3 -m src.experiments --check
+   4. python3 -m src.experiments --scope scenario
+   5. python3 -m src.experiments
+   默认最后一条执行全量 86 个“查询×算法”组合，30 轮测量。
+   全量前先看核验记录；若报错，按明确错误找对应队友修复，不修改输出数字。
+
+四、正式结果：
+   每次单独保存在 results/run_时间/，不会覆盖旧运行。
+   environment.json 中 status=completed、mode=official、scope=all 才是完整正式实验。
+   checks/ 只有核验记录；demo_results/ 只有演练记录。
+   把完整单次正式结果文件夹发给蒋宇杰与吴林岭，附本次版本说明。
+
+五、模板和参数：
+   templates/ 中 CSV 只有英文表头，不填写假数据。正式程序自动生成同格式表格。
+   config/experiment_config.json 是可阅读的参数记录；启动时会与任务书 V1.0 的固定参数核对。
+   如需改变，先同步全组、任务书和程序，不只改 JSON。
+
+六、可运行自检：
+   python3 -m unittest discover -s tests -v
+   这些测试针对成员三工具，不代表队友正式算法已经通过验收。
+
+说明：此准备包不含正式路网生成器、不替代成员一的数据成果或成员二的算法成果。
